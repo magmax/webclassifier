@@ -8,7 +8,25 @@
   </head>
   <body>
     <h1>WebClassifier</h1>
-    <a type="button" href="{% url 'processall' %}" class="btn btn-sm btn-primary">Process all</a>
+    <div class="row">
+      <form class="row-cols-lg-auto" action="{% url 'web' %}" method="POST">
+        {% csrf_token %}
+        <div class="col-2">
+              <input type="text" class="form-control" name="code" placeholder="Code">
+        </div>
+        <div class="col-2">
+              <input type="text" class="form-control" name="url" placeholder="Url">
+        </div>
+
+          <div class="col-2">
+           <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+      <div class="col-2">
+        <a type="button" href="{% url 'processall' %}" class="btn btn-sm btn-primary">Process all</a>
+      </div>
+    </div>
 
     <table class="table table-hover table-sm">
         <thead>

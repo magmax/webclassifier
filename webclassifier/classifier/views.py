@@ -27,3 +27,12 @@ def processall(request):
         print(f"processing {website}")
         website.process()
     return redirect("index")
+
+def web(request):
+    if request.method != "POST":
+        raise Exception("not supported")
+    models.Website.objects.create(
+        external_id=request.POST['code'],
+        url=request.POST['url'],
+    )
+    return redirect("index")

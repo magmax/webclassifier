@@ -8,4 +8,5 @@ urlpatterns = [
     path("jam/<int:pk>/", views.jam, name="jam"),
     path("process/<int:pk>/", views.process, name="process"),
     path("processall/", views.processall, name="processall"),
+    path("web/", views.web, name="web"),
 ]
