@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 from . import models
 
 def index(request):
@@ -28,6 +29,7 @@ def processall(request):
         website.process()
     return redirect("index")
 
+@csrf_exempt
 def web(request):
     if request.method != "POST":
         raise Exception("not supported")

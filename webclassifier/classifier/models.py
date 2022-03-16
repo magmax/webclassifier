@@ -58,7 +58,11 @@ class Website(models.Model):
         )
         self.status = states.get(r.returncode, Status.UNPROCESSED)
         stdout = r.stdout.decode("utf-8").strip()
-        self.score = float(stdout.split(" ")[1]) * 100
+        try:
+            self.score = float(stdout.split(" ")[1]) * 100
+        except:
+            print(f"Error parsing bogofilter output. Leaving empty score. {stdout}")
+            print(r.stderr)
 
     def process(self):
         content = self.download()

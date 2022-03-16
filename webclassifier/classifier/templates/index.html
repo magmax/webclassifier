@@ -44,7 +44,7 @@
             <tr class="{{ website.style }}">
                     <td>{{ website.id }}</td>
                     <td>{{ website.external_id }}</td>
-                    <td title="{{ website.url }}">{{ website.url | truncatechars:50 }}</td>
+                    <td><a href="{{ website.url }}" target="_blank" title="{{ website.url }}">{{ website.url | truncatechars:50 }}</a></td>
                     <td>{{ website.get_status_display | title }}</td>
                     <td>{{ website.score }}</td>
                     <td>
